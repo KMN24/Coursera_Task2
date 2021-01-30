@@ -13,7 +13,7 @@ public class ExitFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // TODO App'll finish when we selected Exit menu
     }
 
     @Nullable

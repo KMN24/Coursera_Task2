@@ -3,15 +3,12 @@ package com.kmn;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.transition.FragmentTransitionSupport;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void searchOpenFragment(){
-        SearchFragment searchFragment = new SearchFragment();
+        SearchingFragment searchFragment = new SearchingFragment();
         FragmentTransaction  ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragmentContainer, searchFragment);
         ft.commit();
@@ -73,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction  ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragmentContainer, exitFragment);
         ft.commit();
+        // TODO App'll finish when we selected Exit menu
+        finish();
+        System.exit(0);
     }
 
 }

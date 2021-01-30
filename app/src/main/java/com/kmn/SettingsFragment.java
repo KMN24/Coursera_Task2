@@ -23,7 +23,7 @@ public class SettingsFragment extends Fragment {
     private static final String GOOGLE_KEY = "GOOGLE_KEY";
     private static final String YANDEX_KEY = "YANDEX_KEY";
     private static final String BING_KEY = "BING_KEY";
-
+    Browser searchingEngine = new Browser();
 
     public SettingsFragment() {
         super(R.layout.fr_settings);
@@ -43,7 +43,6 @@ public class SettingsFragment extends Fragment {
         mYandex = view.findViewById(R.id.rbYandex);
         mBing = view.findViewById(R.id.rbBing);
         mRadioGroup = view.findViewById(R.id.radio_group);
-
         mGoogle.setChecked(updateData(GOOGLE_KEY));
         mYandex.setChecked(updateData(YANDEX_KEY));
         mBing.setChecked(updateData(BING_KEY));
@@ -55,39 +54,31 @@ public class SettingsFragment extends Fragment {
         mGoogle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    whichSearchinEngine("google");
+                }
                 saveIntoSharedPrefs(GOOGLE_KEY, isChecked);
             }
         });
+
         mYandex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    whichSearchinEngine("yandex");
+                }
                 saveIntoSharedPrefs(YANDEX_KEY, isChecked);
             }
         });
         mBing.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    whichSearchinEngine("bing");
+                }
                 saveIntoSharedPrefs(BING_KEY, isChecked);
             }
         });
-
-//        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                int googleID  = group.findViewById(R.id.rbGoogle).getId();
-//                int yandexID = group.findViewById(R.id.rbYandex).getId();
-//                int bingID = group.findViewById(R.id.rbBing).getId();
-//                if (checkedId == googleID){
-//                    saveIntoSharedPrefs(GOOGLE_KEY, mGoogle.isChecked());
-//                }
-//                else if(checkedId == yandexID){
-//                    saveIntoSharedPrefs(YANDEX_KEY, mYandex.isChecked());
-//                }
-//                else if(checkedId == bingID){
-//                    saveIntoSharedPrefs(BING_KEY, mBing.isChecked());
-//                }
-//            }
-//        });
 
         return view;
     }
@@ -102,4 +93,9 @@ public class SettingsFragment extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean(key, false);
     }
+
+    private void whichSearchinEngine(String serchingEng){
+        searchingEngine.SEARCH_ENGINE = serchingEng;
+    }
+
 }
