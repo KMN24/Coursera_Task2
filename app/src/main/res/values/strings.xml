@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Coursera_Task2</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+    <string name="exit">Exit</string>
+    <string name="yandex">Яндекс</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+</resources>
