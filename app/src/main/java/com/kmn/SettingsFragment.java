@@ -23,7 +23,7 @@ public class SettingsFragment extends Fragment {
     private static final String GOOGLE_KEY = "GOOGLE_KEY";
     private static final String YANDEX_KEY = "YANDEX_KEY";
     private static final String BING_KEY = "BING_KEY";
-    Browser searchingEngine = new Browser();
+    SearchingEngine searchingEngine = new SearchingEngine();
 
     public SettingsFragment() {
         super(R.layout.fr_settings);
@@ -55,7 +55,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    whichSearchinEngine("google");
+                    whichSearchingEngine("google");
                 }
                 saveIntoSharedPrefs(GOOGLE_KEY, isChecked);
             }
@@ -65,7 +65,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    whichSearchinEngine("yandex");
+                    whichSearchingEngine("yandex");
                 }
                 saveIntoSharedPrefs(YANDEX_KEY, isChecked);
             }
@@ -74,7 +74,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    whichSearchinEngine("bing");
+                    whichSearchingEngine("bing");
                 }
                 saveIntoSharedPrefs(BING_KEY, isChecked);
             }
@@ -94,8 +94,8 @@ public class SettingsFragment extends Fragment {
         return sharedPreferences.getBoolean(key, false);
     }
 
-    private void whichSearchinEngine(String serchingEng){
-        searchingEngine.SEARCH_ENGINE = serchingEng;
+    private void whichSearchingEngine(String searchingEng){
+        searchingEngine.SEARCH_ENGINE = searchingEng;
     }
 
 }

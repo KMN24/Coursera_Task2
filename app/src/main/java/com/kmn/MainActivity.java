@@ -17,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MainFragment exitFragment = new MainFragment();
+        FragmentTransaction  ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragmentContainer, exitFragment);
+        ft.commit();
     }
 
 
@@ -40,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.exit :
                 showMessage(R.string.exit);
-                exitOpenFragment();
+                finish();
+                System.exit(0);
                 break;
             default:
                 break;
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         SettingsFragment settingsFragment = new SettingsFragment();
         FragmentTransaction  ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragmentContainer, settingsFragment);
+        ft.addToBackStack("tag");
         ft.commit();
 
     }
@@ -62,17 +68,8 @@ public class MainActivity extends AppCompatActivity {
         SearchingFragment searchFragment = new SearchingFragment();
         FragmentTransaction  ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragmentContainer, searchFragment);
+        ft.addToBackStack("tag");
         ft.commit();
-    }
-
-    private void exitOpenFragment(){
-        ExitFragment exitFragment = new ExitFragment();
-        FragmentTransaction  ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragmentContainer, exitFragment);
-        ft.commit();
-        // TODO App'll finish when we selected Exit menu
-        finish();
-        System.exit(0);
     }
 
 }

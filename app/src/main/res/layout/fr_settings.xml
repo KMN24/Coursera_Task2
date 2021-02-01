@@ -1,40 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical">
 
-    >
-
-    <RadioGroup
-        android:id="@+id/radio_group"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
         >
-
-        <RadioButton
-            android:id="@+id/rbGoogle"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/google" />
+            android:text="@string/choose_searchEngine"
+            android:layout_gravity="center"
+            android:textSize="17dp"
+            android:textColor="@color/white"
 
-        <RadioButton
-            android:id="@+id/rbYandex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/yandex" />
+            />
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
 
-        <RadioButton
-            android:id="@+id/rbBing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/bing" />
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/rbGoogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/google" />
 
-</LinearLayout>
+            <RadioButton
+                android:id="@+id/rbYandex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/yandex" />
+
+            <RadioButton
+                android:id="@+id/rbBing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/bing" />
+        </RadioGroup>
+    </LinearLayout>
+
+</FrameLayout>

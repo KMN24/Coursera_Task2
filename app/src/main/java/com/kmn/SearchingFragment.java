@@ -21,7 +21,7 @@ public class SearchingFragment extends Fragment {
     public static final String urlGoogle =  "http://google.com/search?q=";
     public static final String urlYandex = "https://yandex.ru/search/?text=";
     public static final String urlBing = "https://www.bing.com/search?q=";
-    Browser searchingEngine = new Browser();
+    SearchingEngine searchingEngine = new SearchingEngine();
 
     private View.OnClickListener mOnOpeningBrowserBtnClickList = new View.OnClickListener() {
         @Override
